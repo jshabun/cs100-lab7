@@ -6,8 +6,8 @@
 
 TEST(ParseTest, OneDigitNum){
 	char* test_val[2];
-	test_val[0] = strtup("./calculator");
-	test_val[1] = strtup("6");
+	test_val[0] = strdup("./calculator");
+	test_val[1] = strdup("6");
 	Factory* fact = new Parse();
 	Base* calc = fact->parse(test_val, 2);
 	EXPECT_EQ("6.000000", calc->stringify());
@@ -20,8 +20,8 @@ TEST(ParseTest, OneDigitNum){
 
 TEST(ParseTest, TwoDigitNum){
 	char* test_val[2];
-	test_val[0] = strtup("./calculator");
-	test_val[1] = strtup("21");
+	test_val[0] = strdup("./calculator");
+	test_val[1] = strdup("21");
 	Factory* fact = new Parse();
 	Base* calc = fact-> parse(test_val, 2);
 	EXPECT_EQ("21.000000",calc->stringify());
@@ -34,10 +34,10 @@ TEST(ParseTest, TwoDigitNum){
 
 TEST(ParseTest, Addition){
 	char* test_val[4];
-	test_val[0] = strtup("./calculator");
-	test_val[1] = strtup("9");
-	test_val[2] = strtup("+");
-	test_val[3] = strtup("10");
+	test_val[0] = strdup("./calculator");
+	test_val[1] = strdup("9");
+	test_val[2] = strdup("+");
+	test_val[3] = strdup("10");
 	Factory* fact = new Parse();
 	Base* calc = fact-> parse(test_val, 4);
 	EXPECT_EQ("(9.000000 + 10.000000)", calc->stringify());
@@ -50,9 +50,9 @@ TEST(ParseTest, Addition){
 
 TEST(InvalidTest, OneOperand) {
 	char* test_val[3];
-	test_val[0] = strtup("./calculator");
-	test_val[1] = strtup("9");
-	test_val[2] = strtup("+");
+	test_val[0] = strdup("./calculator");
+	test_val[1] = strdup("9");
+	test_val[2] = strdup("+");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 3);
 	EXPECT_EQ(test, nullptr);
@@ -65,9 +65,9 @@ TEST(InvalidTest, OneOperand) {
 
 TEST(InvalidTest, NoOperand) {
         char* test_val[3];
-        test_val[0] = strtup("./calculator");
-        test_val[1] = strtup("*");
-        test_val[2] = strtup("/");
+        test_val[0] = strdup("./calculator");
+        test_val[1] = strdup("*");
+        test_val[2] = strdup("/");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 3);
         EXPECT_EQ(test, nullptr);
@@ -80,11 +80,11 @@ TEST(InvalidTest, NoOperand) {
 
 TEST(InvalidTest, TwoOperand) {
         char* test_val[5];
-        test_val[0] = strtup("./calculator");
-        test_val[1] = strtup("6");
-        test_val[2] = strtup("-");
-		test_val[3] = strtup("3");
-		test_val[4] = strtup("*");
+        test_val[0] = strdup("./calculator");
+        test_val[1] = strdup("6");
+        test_val[2] = strdup("-");
+		test_val[3] = strdup("3");
+		test_val[4] = strdup("*");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 5);
         EXPECT_EQ(test, nullptr);
@@ -97,16 +97,16 @@ TEST(InvalidTest, TwoOperand) {
 
 TEST(InvalidTest, SubMultAddDivSubInv) {
         char* test_val[10];
-        test_val[0] = strtup("./calculator");
-        test_val[1] = strtup("30");
-        test_val[2] = strtup("-");
-        test_val[3] = strtup("9");
-        test_val[4] = strtup("*");
-        test_val[5] = strtup("60");
-        test_val[6] = strtup("+");
-        test_val[7] = strtup("7");
-        test_val[8] = strtup("/");
-        test_val[9] = strtup("-");
+        test_val[0] = strdup("./calculator");
+        test_val[1] = strdup("30");
+        test_val[2] = strdup("-");
+        test_val[3] = strdup("9");
+        test_val[4] = strdup("*");
+        test_val[5] = strdup("60");
+        test_val[6] = strdup("+");
+        test_val[7] = strdup("7");
+        test_val[8] = strdup("/");
+        test_val[9] = strdup("-");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 10);
         EXPECT_EQ(nullptr, test);
@@ -119,12 +119,12 @@ TEST(InvalidTest, SubMultAddDivSubInv) {
 
 TEST(LongerEquation, AddDiv) {
         char* test_val[6];
-        test_val[0] = strtup("./calculator");
-        test_val[1] = strtup("4");
-        test_val[2] = strtup("+");
-        test_val[3] = strtup("3");
-        test_val[4] = strtup("/");
-		test_val[5] = strtup("7");
+        test_val[0] = strdup("./calculator");
+        test_val[1] = strdup("4");
+        test_val[2] = strdup("+");
+        test_val[3] = strdup("3");
+        test_val[4] = strdup("/");
+		test_val[5] = strdup("7");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 6);
         EXPECT_EQ(test->evaluate(), 1);
@@ -137,12 +137,12 @@ TEST(LongerEquation, AddDiv) {
 
 TEST(LongerEquation, SubPow) {
         char* test_val[6];
-        test_val[0] = strtup("./calculator");
-        test_val[1] = strtup("6");
-        test_val[2] = strtup("-");
-        test_val[3] = strtup("3");
-        test_val[4] = strtup("**");
-        test_val[5] = strtup("2");
+        test_val[0] = strdup("./calculator");
+        test_val[1] = strdup("6");
+        test_val[2] = strdup("-");
+        test_val[3] = strdup("3");
+        test_val[4] = strdup("**");
+        test_val[5] = strdup("2");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 6);
         EXPECT_EQ(test->evaluate(), 27);
@@ -155,16 +155,16 @@ TEST(LongerEquation, SubPow) {
 
 TEST(LongerEquation, MultAddSubDiv) {
         char* test_val[10];
-        test_val[0] = strtup("./calculator");
-        test_val[1] = strtup("56");
-        test_val[2] = strtup("*");
-        test_val[3] = strtup("3");
-        test_val[4] = strtup("+");
-        test_val[5] = strtup("19");
-		test_val[6] = strtup("-");
-        test_val[7] = strtup("87");
-		test_val[8] = strtup("/");
-		test_val[9] = strtup("10");
+        test_val[0] = strdup("./calculator");
+        test_val[1] = strdup("56");
+        test_val[2] = strdup("*");
+        test_val[3] = strdup("3");
+        test_val[4] = strdup("+");
+        test_val[5] = strdup("19");
+		test_val[6] = strdup("-");
+        test_val[7] = strdup("87");
+		test_val[8] = strdup("/");
+		test_val[9] = strdup("10");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 10);
         EXPECT_EQ(test->evaluate(), 10);
@@ -177,10 +177,10 @@ TEST(LongerEquation, MultAddSubDiv) {
 
 TEST(ParseTest, Sub){
 	char* test_val[4];
-	test_val[0] = strtup("./calculator"); 
-    test_val[1] = strtup("90");
-	test_val[2] = strtup("-");
-    test_val[3] = strtup("45");
+	test_val[0] = strdup("./calculator"); 
+    test_val[1] = strdup("90");
+	test_val[2] = strdup("-");
+    test_val[3] = strdup("45");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
 	EXPECT_EQ("(90.000000 - 45.000000)", calc->stringify());
@@ -193,10 +193,10 @@ TEST(ParseTest, Sub){
 
 TEST(ParseTest, SubNegative){
 	char* test_val[4];
-	test_val[0]= strtup("./calculator"); 
-	test_val[1]= strtup("3"); 
-	test_val[2]= strtup("-"); 
-	test_val[3]= strtup("21");
+	test_val[0]= strdup("./calculator"); 
+	test_val[1]= strdup("3"); 
+	test_val[2]= strdup("-"); 
+	test_val[3]= strdup("21");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
 	EXPECT_EQ(-17, calc->evaluate());
@@ -209,10 +209,10 @@ TEST(ParseTest, SubNegative){
 
 TEST(ParseTest, Mult){
 	char* test_val[4];
-	test_val[0]= strtup("./calculator"); 
-	test_val[1]= strtup("8"); 
-	test_val[2]= strtup("*"); 
-	test_val[3]= strtup("7");
+	test_val[0]= strdup("./calculator"); 
+	test_val[1]= strdup("8"); 
+	test_val[2]= strdup("*"); 
+	test_val[3]= strdup("7");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
 	EXPECT_EQ(56, calc->evaluate());
@@ -225,10 +225,10 @@ TEST(ParseTest, Mult){
 
 TEST(ParseTest, Pow){
 	char* test_val[4];
-	test_val[0] = strtup("./calculator");
-	test_val[1] = strtup("9"); 
-	test_val[2] = strtup("**"); 
-	test_val[3] = strtup("2");
+	test_val[0] = strdup("./calculator");
+	test_val[1] = strdup("9"); 
+	test_val[2] = strdup("**"); 
+	test_val[3] = strdup("2");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val,4);
 	EXPECT_EQ(81, calc->evaluate());
@@ -241,10 +241,10 @@ TEST(ParseTest, Pow){
 
 TEST(ParseTest, Div){
 	char* test_val[4];
-	test_val[0] = strtup("./calculator"); 
-	test_val[1] = strtup("200"); 
-	test_val[2] = strtup("/"); 
-	test_val[3] = strtup("40");
+	test_val[0] = strdup("./calculator"); 
+	test_val[1] = strdup("200"); 
+	test_val[2] = strdup("/"); 
+	test_val[3] = strdup("40");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
 	EXPECT_EQ(5, calc->evaluate());
