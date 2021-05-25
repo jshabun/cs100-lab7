@@ -8,16 +8,19 @@
 TEST(RandTest, EvaluateRandGen){
     Rand* test = new Rand();
     EXPECT_TRUE((test->evaluate() >= 0)&&(test->evaluate() <= 100));
+	delete test;
 }
 
 TEST(RandTest, EvaluateRandGen2){
     Rand* test = new Rand();
     EXPECT_TRUE((test->evaluate() >= 0)&&(test->evaluate() <= 100));
+	delete test;
 }
 
 TEST(RandTest, EvaluateRandGen3){
     Rand* test = new Rand();
     EXPECT_TRUE((test->evaluate() >= 0)&&(test->evaluate() <= 100));
+	delete test;
 }
 
 #endif //__RAND_TEST_HPP__
