@@ -60,7 +60,7 @@ TEST(InvalidTest, OneOperand) {
         delete test;
         for(int i = 0; i < 3; i++){
                 free(test_val[i]);
-        }	
+       }	
 }
 
 TEST(InvalidTest, NoOperand) {
@@ -74,7 +74,7 @@ TEST(InvalidTest, NoOperand) {
         delete fact;
         delete test;
         for(int i = 0; i < 3; i++){
-                free(test_val[i]);
+               free(test_val[i]);
         }
 }
 
@@ -91,7 +91,7 @@ TEST(InvalidTest, TwoOperand) {
         delete fact;
         delete test;
         for(int i = 0; i < 5; i++){
-                free(test_val[i]);
+              free(test_val[i]);
         }
 }
 
@@ -113,7 +113,7 @@ TEST(InvalidTest, SubMultAddDivSubInv) {
         delete fact;
         delete test;
         for(int i = 0; i < 10; i++){
-                free(test_val[i]);
+               free(test_val[i]);
         }
 }
 
@@ -145,12 +145,12 @@ TEST(LongerEquation, SubPow) {
         test_val[5] = strdup("2");
         Factory* fact = new Parse();
         Base* test = fact->parse(test_val, 6);
-        EXPECT_EQ(test->evaluate(), 27);
+        EXPECT_EQ(test->evaluate(), 9);
         delete fact;
         delete test;
         for(int i = 0; i < 6; i++){
                 free(test_val[i]);
-        }
+       }
 }
 
 TEST(LongerEquation, MultAddSubDiv) {
@@ -187,7 +187,7 @@ TEST(ParseTest, Sub){
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
-                free(test[i]);
+                free(test_val[i]);
         }
 }
 
@@ -199,11 +199,11 @@ TEST(ParseTest, SubNegative){
 	test_val[3]= strdup("21");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
-	EXPECT_EQ(-17, test->evaluate());
+	EXPECT_EQ(-18, test->evaluate());
 	delete fact;
     delete test;
     for(int i = 0; i < 4; i++){
-            free(test[i]);
+            free(test_val[i]);
         }
 }
 
@@ -219,7 +219,7 @@ TEST(ParseTest, Mult){
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
-                free(test[i]);
+                free(test_val[i]);
         }
 }
 
@@ -235,7 +235,7 @@ TEST(ParseTest, Pow){
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
-                free(test[i]);
+                free(test_val[i]);
         }
 }
 
@@ -251,7 +251,7 @@ TEST(ParseTest, Div){
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
-                free(test[i]);
+                free(test_val[i]);
         }
 }
 

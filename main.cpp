@@ -14,9 +14,9 @@
 
 using namespace std;
 
-int main(int argc, char** agrv) {
+int main(int argc, char** argv) {
 	Factory* factory_pattern = new Parse();
-	Base* test = factory_pattern -> parse(argc, argv);
+	Base* test = factory_pattern -> parse(argv, argc);
 	
 	if (test) {
 		cout << test -> stringify() << " = " << test -> evaluate() << endl;

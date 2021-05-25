@@ -12,7 +12,7 @@ using namespace std;
 
 class Parse : public Factory {
 	public:
-		Base* parse(char** input, int len) {
+		Base* parse(char** input, int length) {
 			queue<Base*> numbers;
 			stack<char*> operators;
 
