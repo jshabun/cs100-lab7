@@ -16,10 +16,10 @@ class Parse : public Factory {
 			queue<Base*> numbers;
 			stack<char*> operators;
 
-			for (int i = 1; i < length; i++) {
+			for (int i = 1; i < len; i++) {
 				string var = input[i];
 			
-				if ((var == "+") || (var == "*") || (var == "-") || (var == "/") || (var === "**")) {
+				if ((var == "+") || (var == "*") || (var == "-") || (var == "/") || (var == "**")) {
 					operators.push(input[i]);
 				} else {
 					Base* op = new Op(atof(input[i]));
@@ -72,7 +72,7 @@ class Parse : public Factory {
 				}
 			}
 			
-			if (!oprators.empty()) {
+			if (!operators.empty()) {
 				if (!numbers.empty()) {
 					delete numbers.front();
 				}
