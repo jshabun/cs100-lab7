@@ -9,7 +9,7 @@ ADD_EXECUTABLE(calculator
 )
 
 ADD_EXECUTABLE(test
-	test.cpp
+	unit_test.cpp
 )
 
 TARGET_LINK_LIBRARIES(test gtest)
