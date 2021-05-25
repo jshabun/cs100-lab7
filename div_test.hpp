@@ -12,6 +12,9 @@ TEST(DivTest, DivNegativesEv) {
 	Div* eval = new Div(op1,op2);
 	
 	EXPECT_EQ(eval->evaluate(), 0.25);
+	delete eval;
+	delete op1;
+   	delete op2;
 }
 
 TEST(DivTest, DivNegativesStr) {
@@ -20,6 +23,9 @@ TEST(DivTest, DivNegativesStr) {
         Div* eval = new Div(op1,op2);
 
         EXPECT_EQ(eval->stringify(), "(-2.000000 / -8.000000)");
+		delete eval;
+		delete op1;
+        delete op2;
 }
 
 TEST(DivTest, DivPositiveEv) {
@@ -28,6 +34,9 @@ TEST(DivTest, DivPositiveEv) {
         Div* eval = new Div(op1,op2);
 
         EXPECT_EQ(eval->evaluate(), 2);
+		delete eval;
+		delete op1;
+        delete op2;
 }
 
 TEST(DivTest, DivPositiveStr) {
@@ -36,6 +45,9 @@ TEST(DivTest, DivPositiveStr) {
         Div* eval = new Div(op1,op2);
 
         EXPECT_EQ(eval->stringify(), "(10.000000 / 5.000000)");
+		delete eval;
+		delete op1;
+        delete op2;
 }
 
 #endif //__DIV_TEST_HPP__

@@ -12,6 +12,9 @@ TEST(SubTest, SubNegEv) {
 	Sub* eval = new Sub(op1, op2);
 
 	EXPECT_EQ(eval->evaluate(), 9);
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 TEST(SubTest, SubNegStr) {
@@ -20,6 +23,9 @@ TEST(SubTest, SubNegStr) {
         Sub* eval = new Sub(op1, op2);
 
         EXPECT_EQ(eval->stringify(), "(-3.000000 - -12.000000)");
+		delete eval;
+		delete op1;
+        delete op2;
 }
 
 TEST(SubTest, SubPosEv) {
@@ -28,6 +34,9 @@ TEST(SubTest, SubPosEv) {
         Sub* eval = new Sub(op1, op2);
 
         EXPECT_EQ(eval->evaluate(), -5);
+		delete eval;
+		delete op1;
+        delete op2;
 }
 
 TEST(SubTest, SubPosStr) {
@@ -36,6 +45,9 @@ TEST(SubTest, SubPosStr) {
         Sub* eval = new Sub(op1, op2);
 
         EXPECT_EQ(eval->stringify(), "(4.000000 - 9.000000)");
+		delete eval;
+		delete op1;
+		delete op2;
 }
 
 #endif // __SUB_TEST_HPP__

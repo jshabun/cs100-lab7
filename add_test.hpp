@@ -12,6 +12,9 @@ TEST(AddTest, AddNegativesEv) {
 	Add* eval = new Add(op1, op2);
 	
 	EXPECT_EQ(eval->evaluate(), -10);
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 TEST(AddTest, AddNegativesStr) {
@@ -20,38 +23,53 @@ TEST(AddTest, AddNegativesStr) {
         Add* eval = new Add(op1, op2);
 
 	EXPECT_EQ(eval->stringify(), "(-6.000000 + -4.000000)");
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 TEST(AddTest, AddPositivesEv) {
 	Op* op1 = new Op(3);
-        Op* op2 = new Op(2);
+    Op* op2 = new Op(2);
 	Add* eval = new Add(op1, op2);
 
 	EXPECT_EQ(eval->evaluate(), 5);
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 TEST(AddTest, AddPositivesStr) {	
 	Op* op1 = new Op(3);
-        Op* op2 = new Op(2);
-        Add* eval = new Add(op1, op2);
+    Op* op2 = new Op(2);
+    Add* eval = new Add(op1, op2);
 
 	EXPECT_EQ(eval->stringify(),"(3.000000 + 2.000000)");
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 TEST(AddTest, AddZeroEv) {
 	Op* op1 = new Op(0);
-        Op* op2 = new Op(0);
-        Add* eval = new Add(op1, op2);  
+    Op* op2 = new Op(0);
+    Add* eval = new Add(op1, op2);  
 
-        EXPECT_EQ(eval->evaluate(), 0);
+    EXPECT_EQ(eval->evaluate(), 0);
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 TEST(AddTest,AddZeroStr) {
 	Op* op1 = new Op(0);
-        Op* op2 = new Op(0);
-        Add* eval = new Add(op1, op2);
+    Op* op2 = new Op(0);
+    Add* eval = new Add(op1, op2);
 
-        EXPECT_EQ(eval->stringify(),"(0.000000 + 0.000000)");
+    EXPECT_EQ(eval->stringify(),"(0.000000 + 0.000000)");
+	delete eval;
+	delete op1;
+    delete op2;
 }
 
 #endif //__ADD_TEST_HPP
