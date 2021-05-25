@@ -46,7 +46,7 @@ class Parse : public Factory {
                         numbers.push(mult);
 
 					} else if (var2 == "-") {
-						Base* sub = new sub(numbers.front(), numbers.back());
+						Base* sub = new Sub(numbers.front(), numbers.back());
                         for (int j = 1; j < 3; j++) {
                             numbers.pop();
                         }
@@ -84,4 +84,4 @@ class Parse : public Factory {
 		}		
 };
 
-endif //__PARSE_HPP__
+#endif //__PARSE_HPP__
