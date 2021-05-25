@@ -9,11 +9,22 @@
 #include "rand.hpp"
 #include "sub.hpp"
 
-#include "factory_pattern.hpp"
+#include "parse.hpp"
 
 using namespace std;
 
 int main(int argc, char** agrv) {
+	Factory* factory_pattern = new Parse();
+	Base* test = factory_pattern -> parse(argc, argv);
+	
+	if (test) {
+		cout << test -> stringify() << " = " << test -> evaluate() << endl;
+	} else {
+		cout << "Invalid" << endl;
+	}
 
-return 0;
+	delete factory_pattern;
+	delete test;
+		
+	return 0;
 }
