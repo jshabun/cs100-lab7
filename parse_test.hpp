@@ -183,7 +183,7 @@ TEST(ParseTest, Sub){
     test_val[3] = strdup("45");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
-	EXPECT_EQ("(90.000000 - 45.000000)", calc->stringify());
+	EXPECT_EQ("(90.000000 - 45.000000)", test->stringify());
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
@@ -199,7 +199,7 @@ TEST(ParseTest, SubNegative){
 	test_val[3]= strdup("21");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
-	EXPECT_EQ(-17, calc->evaluate());
+	EXPECT_EQ(-17, test->evaluate());
 	delete fact;
     delete test;
     for(int i = 0; i < 4; i++){
@@ -215,7 +215,7 @@ TEST(ParseTest, Mult){
 	test_val[3]= strdup("7");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
-	EXPECT_EQ(56, calc->evaluate());
+	EXPECT_EQ(56, test->evaluate());
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
@@ -231,7 +231,7 @@ TEST(ParseTest, Pow){
 	test_val[3] = strdup("2");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val,4);
-	EXPECT_EQ(81, calc->evaluate());
+	EXPECT_EQ(81, test->evaluate());
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
@@ -247,7 +247,7 @@ TEST(ParseTest, Div){
 	test_val[3] = strdup("40");
 	Factory* fact = new Parse();
 	Base* test = fact->parse(test_val, 4);
-	EXPECT_EQ(5, calc->evaluate());
+	EXPECT_EQ(5, test->evaluate());
         delete fact;
         delete test;
         for(int i = 0; i < 4; i++){
