@@ -10,6 +10,7 @@
 #include "sub.hpp"
 
 #include "parse.hpp"
+#include "factory.hpp"
 
 using namespace std;
 
